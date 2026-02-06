@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notre Équipe - Groupe La Passerelle</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        @keyframes glow {
+            0%, 100% {
+                box-shadow: 0 0 5px rgba(255, 107, 107, 0.3);
+            }
+            50% {
+                box-shadow: 0 0 20px rgba(255, 107, 107, 0.6);
+            }
+        }
+
+        @keyframes headerBGMove {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+            100% { transform: translateY(0); }
+        }
+
+        /* Styles généraux */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background-image: 
+                linear-gradient(rgba(10, 36, 99, 0.85), rgba(10, 36, 99, 0.9)),
+                url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=2073');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-color: #0a2463;
+            color: white;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        /* En-tête */
+        header {
+            background-image: linear-gradient(rgba(10,36,99,0.6), rgba(10,36,99,0.75)), url('bn1.jpg');
+            background-size: cover;
+            background-position: center;
+            padding: 2.2rem 2.5rem;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.35);
+            animation: headerBGMove 20s linear infinite, fadeInDown 0.6s ease-out;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(5px);
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo {
+            color: #ff6b6b;
+            font-size: 2.8rem;
+            font-weight: bold;
+            animation: float 4s ease-in-out infinite, slideInLeft 0.8s ease-out;
+        }
+
+        .company-name {
+            font-size: 1.9rem;
+            color: white;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Menu de navigation */
+        nav {
+            background-color: rgba(30, 64, 175, 0.95);
+            padding: 1rem 2rem;
+            animation: fadeInDown 0.8s ease-out 0.2s both;
+            backdrop-filter: blur(5px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .nav-menu {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            list-style: none;
+        }
+        
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            padding: 0.5rem 1.2rem;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            background-color: rgba(255, 255, 255, 0.1);
+            animation: fadeInUp 0.6s ease-out;
+        }
+        
+        .nav-link:hover {
+            background-color: #ff6b6b;
+            color: white;
+            transform: translateY(-2px);
+            animation: glow 1.5s ease-in-out infinite;
+        }
+        
+        .nav-link.active {
+            background-color: #ff6b6b;
+            color: white;
+            box-shadow: 0 0 10px rgba(255, 107, 107, 0.5);
+        }
+        
+        /* Contenu principal */
+        main {
+            flex: 1;
+            padding: 3rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            width: 100%;
+        }
+        
+        .page-header {
+            text-align: center;
+            margin-bottom: 4rem;
+            padding-bottom: 2rem;
+            border-bottom: 2px solid #ff6b6b;
+        }
+        
+        .page-header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #ff6b6b;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8), 0 0 20px rgba(0, 0, 0, 0.6);
+            animation: fadeInDown 0.8s ease-out 0.3s both;
+        }
+        
+        .page-header p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto;
+            color: #ffffff;
+            text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.8);
+            animation: fadeInUp 0.8s ease-out 0.5s both;
+        }
+        
+        /* Section fondateurs */
+        .founders-section {
+            margin-bottom: 5rem;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            color: #ff6b6b;
+            margin-bottom: 3rem;
+            text-align: center;
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8);
+            animation: fadeInDown 0.8s ease-out;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background-color: #ff6b6b;
+            border-radius: 2px;
+        }
+        
+        /* Grille des fondateurs */
+        .founders-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+            margin-bottom: 4rem;
+        }
+        
+        .founder-card {
+            background-color: rgba(30, 58, 138, 0.8);
+            border-radius: 15px;
+            padding: 2.5rem;
+            transition: all 0.4s ease;
+            border: 2px solid rgba(255, 107, 107, 0.2);
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 0.7s ease-out;
+            text-align: center;
+        }
+        
+        .founder-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+            border-color: #ff6b6b;
+            animation: pulse 2s infinite;
+        }
+        
+        .founder-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            overflow: hidden;
+            border: 4px solid #ff6b6b;
+            box-shadow: 0 0 30px rgba(255, 107, 107, 0.6), inset 0 0 20px rgba(255, 255, 255, 0.1);
+            animation: fadeInUp 0.8s ease-out;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        .founder-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(1.2) contrast(1.15) saturate(1.1);
+            transition: filter 0.3s ease;
+        }
+        
+        .founder-card:hover .founder-image img {
+            filter: brightness(1.35) contrast(1.25) saturate(1.2);
+        }
+        
+        .founder-name {
+            font-size: 1.8rem;
+            color: #ff6b6b;
+            margin-bottom: 0.5rem;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+        }
+        
+        .founder-title {
+            font-size: 1.2rem;
+            color: #cbd5e1;
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+        
+        .founder-description {
+            color: #e2e8f0;
+            margin-bottom: 1.5rem;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+        }
+        
+        .founder-expertise {
+            color: #94a3b8;
+            font-style: italic;
+            margin-bottom: 1.5rem;
+        }
+        
+        /* Section équipe complète */
+        .team-section {
+            margin-bottom: 5rem;
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+        
+        .team-member {
+            background-color: rgba(30, 58, 138, 0.7);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 107, 107, 0.2);
+            animation: fadeInUp 0.7s ease-out;
+        }
+        
+        .team-member:hover {
+            transform: translateY(-5px);
+            border-color: #ff6b6b;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .member-avatar {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            background-color: rgba(255, 107, 107, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 3px solid #ff6b6b;
+            overflow: hidden;
+        }
+        
+        .member-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .member-name {
+            color: #ff6b6b;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .member-role {
+            color: #cbd5e1;
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+        
+        /* Section valeurs d'équipe */
+        .team-values {
+            background-color: rgba(30, 64, 175, 0.7);
+            border-radius: 15px;
+            padding: 3.5rem;
+            margin-bottom: 4rem;
+            border: 2px solid #ff6b6b;
+            animation: slideInLeft 0.8s ease-out;
+        }
+        
+        .values-content {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+        }
+        
+        .values-text {
+            flex: 2;
+        }
+        
+        .values-text h2 {
+            font-size: 2.2rem;
+            color: #ff6b6b;
+            margin-bottom: 1.5rem;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+        }
+        
+        .values-text p {
+            color: #e2e8f0;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+        }
+        
+        .values-list {
+            color: #cbd5e1;
+            padding-left: 1.5rem;
+        }
+        
+        .values-list li {
+            margin-bottom: 0.8rem;
+            position: relative;
+        }
+        
+        .values-list li::before {
+            content: '✓';
+            color: #ff6b6b;
+            position: absolute;
+            left: -1.5rem;
+            font-weight: bold;
+        }
+        
+        .values-icon {
+            flex: 1;
+            text-align: center;
+            font-size: 6rem;
+            color: #ff6b6b;
+            animation: pulse 3s infinite;
+        }
+        
+        /* Section statistiques */
+        .stats-section {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin: 4rem 0;
+            padding: 3rem;
+            background-color: rgba(30, 58, 138, 0.7);
+            border-radius: 15px;
+            border: 2px solid rgba(255, 107, 107, 0.3);
+        }
+        
+        .stat-item {
+            text-align: center;
+            animation: fadeInUp 0.7s ease-out;
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            color: #ff6b6b;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+        }
+        
+        .stat-label {
+            font-size: 1.2rem;
+            color: #cbd5e1;
+        }
+        
+        /* Section CTA */
+        .cta-section {
+            background-color: rgba(30, 64, 175, 0.8);
+            border-radius: 15px;
+            padding: 4rem;
+            text-align: center;
+            border: 2px solid #ff6b6b;
+            margin-top: 3rem;
+            animation: fadeInUp 0.8s ease-out;
+        }
+        
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: #ff6b6b;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+        }
+        
+        .cta-section p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2.5rem;
+            color: #e2e8f0;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+        }
+        
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .cta-button {
+            padding: 1rem 2.5rem;
+            font-size: 1.2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        
+        .primary-button {
+            background-color: #ff6b6b;
+            color: white;
+            border: 2px solid #ff6b6b;
+        }
+        
+        .primary-button:hover {
+            background-color: #ff5252;
+            border-color: #ff5252;
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(255, 107, 107, 0.4);
+        }
+        
+        .secondary-button {
+            background-color: transparent;
+            color: #ff6b6b;
+            border: 2px solid #ff6b6b;
+        }
+        
+        .secondary-button:hover {
+            background-color: #ff6b6b;
+            color: white;
+            transform: scale(1.05);
+        }
+        
+        /* Pied de page */
+        footer {
+            background-color: rgba(30, 58, 138, 0.95);
+            padding: 2rem;
+            text-align: center;
+            margin-top: auto;
+            backdrop-filter: blur(5px);
+        }
+        
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .footer-info {
+            margin-bottom: 1.5rem;
+            color: #cbd5e1;
+        }
+        
+        .footer-copyright {
+            color: #94a3b8;
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(255, 107, 107, 0.3);
+            padding-top: 1rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .founders-grid {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            }
+            
+            .values-content {
+                flex-direction: column;
+            }
+            
+            .values-icon {
+                order: -1;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 2.2rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .nav-menu {
+                flex-direction: column;
+                align-items: center;
+                gap: 0.8rem;
+            }
+            
+            .founder-card {
+                padding: 2rem;
+            }
+            
+            .founder-image {
+                width: 150px;
+                height: 150px;
+            }
+            
+            .cta-section {
+                padding: 2.5rem 1.5rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .team-values {
+                padding: 2rem;
+            }
+            
+            .stats-section {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .page-header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .founder-card {
+                padding: 1.5rem;
+            }
+            
+            .founder-name {
+                font-size: 1.5rem;
+            }
+            
+            .stat-number {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- En-tête avec logo -->
+    <header>
+        <div class="logo-container">
+            <div class="logo">LP</div>
+            <div class="company-name">Groupe La Passerelle</div>
+        </div>
+    </header>
+    
+    <!-- Menu de navigation principal -->
+    <nav>
+        <ul class="nav-menu">
+           <li><a href="accueil.html" class="nav-link">Accueil</a></li>
+            <li><a href="presentation.html" class="nav-link">Présentation</a></li>
+            <li><a href="services.html" class="nav-link">Services</a></li>
+            <li><a href="equi.html" class="nav-link active">notre equipe</a></li>
+            <li><a href="galerie.html" class="nav-link">galerie</a></li>
+            <li><a href="faq.html" class="nav-link">FAQ</a></li>
+            <li><a href="formulaire.html" class="nav-link">inscription</a></li>
+            <li><a href="avantage.html" class="nav-link">avantages</a></li>
+            <li><a href="contact.html" class="nav-link">contact</a></li>
+            <li><a href="close.html" class="nav-link">close</a></li>
+        </ul>
+    </nav>
+    
+    <!-- Contenu principal -->
+    <main>
+        <section class="page-header">
+            <h1>Rencontrez Notre Équipe d'Experts Immobiliers</h1>
+            <p>Des professionnels passionnés qui conjuguent expertise immobilière et innovation digitale pour valoriser vos propriétés et développer votre présence sur le marché.</p>
+        </section>
+        
+        <!-- Section des fondateurs -->
+        <section class="founders-section">
+            <h2 class="section-title">Nos Fondateurs Visionnaires</h2>
+            
+            <div class="founders-grid">
+                <!-- Fondateur 1 : Deo Grace -->
+                <div class="founder-card">
+                    <div class="founder-image">
+                        <img src="b.jpeg" alt="Deo Grace - PDG & Fondateur">
+                        
+                    </div>
+                    <h3 class="founder-name">Deo Grace</h3>
+                    <p class="founder-title">PDG & Fondateur</p>
+                    <p class="founder-description">
+                        Visionnaire du secteur immobilier digital, Deo a fondé Groupe La Passerelle avec une conviction forte : l'immobilier de demain sera entièrement digitalisé. Avec 15 ans d'expérience dans le conseil immobilier, il dirige notre stratégie d'innovation.
+                    </p>
+                    <p class="founder-expertise">Expert en stratégie immobilière digitale et valorisation de patrimoine</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin" style="color: #ff6b6b; font-size: 1.5rem; margin: 0 0.5rem;"></i></a>
+                        <a href="#"><i class="fab fa-twitter" style="color: #ff6b6b; font-size: 1.5rem; margin: 0 0.5rem;"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Fondateur 2 : Sophie Leroy -->
+                <div class="founder-card">
+                    <div class="founder-image">
+                        <img src="by.jpeg" alt="Sophie Leroy - Directrice Technique">
+                    </div>
+                    <h3 class="founder-name">nathalie kobo</h3>
+                    <p class="founder-title">Directrice Technique</p>
+                    <p class="founder-description">
+                        Diplômée d'une école d'ingénieurs en informatique, Sophie allie expertise technique et connaissance approfondie du marché immobilier. Elle supervise le développement de nos plateformes digitales et garantit leur performance et sécurité.
+                    </p>
+                    <p class="founder-expertise">Spécialiste en développement de portails immobiliers et technologies web</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin" style="color: #ff6b6b; font-size: 1.5rem; margin: 0 0.5rem;"></i></a>
+                        <a href="#"><i class="fab fa-github" style="color: #ff6b6b; font-size: 1.5rem; margin: 0 0.5rem;"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Fondateur 3 : Thomas Dubois -->
+                <div class="founder-card">
+                    <div class="founder-image">
+                        <img src="vt.jpeg" alt="Thomas Dubois - Directeur Innovation">
+                    </div>
+                    <h3 class="founder-name">elie samba</h3>
+                    <p class="founder-title">Directeur Innovation</p>
+                    <p class="founder-description">
+                        Ancien consultant en stratégie digitale pour de grandes agences immobilières, Thomas apporte son expertise en technologies émergentes. Il pilote notre recherche et développement pour anticiper les tendances du marché immobilier.
+                    </p>
+                    <p class="founder-expertise">Expert en technologies immobilières, IA et expérience utilisateur</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin" style="color: #ff6b6b; font-size: 1.5rem; margin: 0 0.5rem;"></i></a>
+                        <a href="#"><i class="fab fa-medium" style="color: #ff6b6b; font-size: 1.5rem; margin: 0 0.5rem;"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Section équipe complète -->
+        <section class="team-section">
+            <h2 class="section-title">Notre Équipe Pluridisciplinaire</h2>
+            
+            <div class="team-grid">
+                <!-- Membre équipe 1 -->
+                <div class="team-member">
+                    <div class="member-avatar">
+                        <img src="er.jpg" alt="Camille Petit - Directrice des Opérations">
+                    </div>
+                    <h3 class="member-name">Camille Petit</h3>
+                    <p class="member-role">Directrice des Opérations</p>
+                    <p>Gestion de projets immobiliers et relation clients</p>
+                </div>
+                
+                <!-- Membre équipe 2 -->
+                <div class="team-member">
+                    <div class="member-avatar">
+                        <img src="er1.jpg" alt="Marie Dubois - Responsable Marketing">
+                    </div>
+                    <h3 class="member-name">Marie Dubois</h3>
+                    <p class="member-role">Responsable Marketing Immobilier</p>
+                    <p>Stratégie digitale et visibilité des annonces</p>
+                </div>
+                
+                <!-- Membre équipe 3 -->
+                <div class="team-member">
+                    <div class="member-avatar">
+                        <img src="er2.jpg" alt="Antoine Martin - Expert Juridique">
+                    </div>
+                    <h3 class="member-name">Antoine Martin</h3>
+                    <p class="member-role">Expert Juridique Immobilier</p>
+                    <p>Conformité et aspects légaux des transactions</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Section valeurs d'équipe -->
+        <section class="team-values">
+            <div class="values-content">
+                <div class="values-text">
+                    <h2>Notre Culture d'Équipe</h2>
+                    <p>Chez Groupe La Passerelle, nous croyons que la force de notre entreprise réside dans la diversité et la complémentarité de notre équipe. Chaque membre apporte son expertise unique pour offrir un service complet à nos clients.</p>
+                    <p>Nos valeurs fondamentales guident nos actions au quotidien :</p>
+                    <ul class="values-list">
+                        <li><strong>Collaboration</strong> : Nous travaillons en synergie pour atteindre l'excellence</li>
+                        <li><strong>Innovation</strong> : Nous repoussons constamment les limites du possible</li>
+                        <li><strong>Transparence</strong> : Nous communiquons avec franchise et clarté</li>
+                        <li><strong>Engagement</strong> : Nous nous investissons pleinement dans chaque projet</li>
+                        <li><strong>Excellence</strong> : Nous visons la perfection dans chaque réalisation</li>
+                    </ul>
+                </div>
+                <div class="values-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Section statistiques -->
+        <section class="stats-section">
+            <div class="stat-item">
+                <div class="stat-number">50+</div>
+                <div class="stat-label">Experts Immobiliers</div>
+            </div>
+            
+            <div class="stat-item">
+                <div class="stat-number">1000+</div>
+                <div class="stat-label">Projets Réalisés</div>
+            </div>
+            
+            <div class="stat-item">
+                <div class="stat-number">15</div>
+                <div class="stat-label">Pays Desservis</div>
+            </div>
+            
+            <div class="stat-item">
+                <div class="stat-number">98%</div>
+                <div class="stat-label">Clients Satisfaits</div>
+            </div>
+        </section>
+        
+        <!-- Section CTA -->
+        <section class="cta-section">
+            <h2>Rejoignez Notre Équipe d'Experts</h2>
+            <p>Vous êtes passionné par l'immobilier et les technologies digitales ? Vous souhaitez contribuer à révolutionner le secteur immobilier ? Découvrez nos opportunités de carrière et venez participer à notre aventure.</p>
+            
+            <div class="cta-buttons">
+                <a href="contact.html" class="cta-button secondary-button">
+                    <i class="fas fa-handshake"></i> Rencontrer Notre Équipe
+                </a>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Pied de page -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-info">
+                <p><strong>Groupe La Passerelle</strong> - Experts en Solutions Immobilières Digitales</p>
+                <p>Valorisation immobilière et création de sites d'agences innovants</p>
+            </div>
+            
+            <div class="footer-copyright">
+                <p>© 2026 Groupe La Passerelle. Tous droits réservés.</p>
+                <p>Site développé avec HTML5, CSS3 et JavaScript</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

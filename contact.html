@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Groupe La Passerelle</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes glow {
+            0%, 100% {
+                box-shadow: 0 0 5px rgba(255, 107, 107, 0.3);
+            }
+            50% {
+                box-shadow: 0 0 20px rgba(255, 107, 107, 0.6);
+            }
+        }
+
+        @keyframes headerBGMove {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+            100% { transform: translateY(0); }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+        
+        /* Styles généraux */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background-image: 
+                linear-gradient(rgba(10, 36, 99, 0.85), rgba(10, 36, 99, 0.9)),
+                url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=2070');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-color: #0a2463;
+            color: white;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        /* En-tête */
+        header {
+            background-image: linear-gradient(rgba(10,36,99,0.6), rgba(10,36,99,0.75)), url('bn1.jpg');
+            background-size: cover;
+            background-position: center;
+            padding: 2.2rem 2.5rem;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.35);
+            animation: headerBGMove 20s linear infinite, fadeInDown 0.6s ease-out;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .logo {
+            color: #ff6b6b;
+            font-size: 2.8rem;
+            font-weight: bold;
+            animation: float 4s ease-in-out infinite, slideInLeft 0.8s ease-out;
+        }
+        
+        .company-name {
+            font-size: 1.9rem;
+            color: white;
+            text-shadow: 0 2px 6px rgba(0,0,0,0.5);
+        }
+        
+        /* Menu de navigation */
+        nav {
+            background-color: rgba(30, 64, 175, 0.95);
+            padding: 1rem 2rem;
+            animation: fadeInDown 0.8s ease-out 0.2s both;
+            backdrop-filter: blur(5px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .nav-menu {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            list-style: none;
+        }
+        
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            padding: 0.5rem 1.2rem;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            background-color: rgba(255, 255, 255, 0.1);
+            animation: fadeInUp 0.6s ease-out;
+        }
+        
+        .nav-link:hover {
+            background-color: #ff6b6b;
+            color: white;
+            transform: translateY(-2px);
+            animation: glow 1.5s ease-in-out infinite;
+        }
+        
+        .nav-link.active {
+            background-color: #ff6b6b;
+            color: white;
+            box-shadow: 0 0 10px rgba(255, 107, 107, 0.5);
+        }
+        
+        /* Contenu principal */
+        main {
+            flex: 1;
+            padding: 3rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+        }
+        
+        .page-header {
+            text-align: center;
+            margin-bottom: 4rem;
+            padding-bottom: 2rem;
+            border-bottom: 2px solid #ff6b6b;
+        }
+        
+        .page-header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #ff6b6b;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8), 0 0 20px rgba(0, 0, 0, 0.6);
+            animation: fadeInDown 0.8s ease-out 0.3s both;
+        }
+        
+        .page-header p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto;
+            color: #ffffff;
+            text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.8);
+            animation: fadeInUp 0.8s ease-out 0.5s both;
+        }
+        
+        /* Container contact */
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 4rem;
+        }
+        
+        /* Formulaire */
+        .contact-form {
+            background-color: rgba(30, 58, 138, 0.8);
+            border-radius: 15px;
+            padding: 2.5rem;
+            border: 2px solid rgba(255, 107, 107, 0.3);
+            animation: fadeInUp 0.8s ease-out;
+        }
+        
+        .contact-form h2 {
+            font-size: 2rem;
+            color: #ff6b6b;
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #e2e8f0;
+            font-weight: 500;
+            font-size: 1rem;
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid rgba(255, 107, 107, 0.3);
+            border-radius: 8px;
+            background-color: rgba(30, 36, 99, 0.6);
+            color: white;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #ff6b6b;
+            box-shadow: 0 0 10px rgba(255, 107, 107, 0.3);
+            background-color: rgba(30, 36, 99, 0.8);
+        }
+        
+        .form-group textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+        
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: #94a3b8;
+        }
+        
+        .submit-button {
+            width: 100%;
+            padding: 1.2rem;
+            background-color: #ff6b6b;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+        }
+        
+        .submit-button:hover {
+            background-color: #ff5252;
+            transform: scale(1.02);
+            box-shadow: 0 10px 25px rgba(255, 107, 107, 0.4);
+        }
+        
+        .submit-button:active {
+            transform: scale(0.98);
+        }
+        
+        /* Informations de contact */
+        .contact-info {
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+        
+        .info-card {
+            background-color: rgba(30, 58, 138, 0.8);
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border: 2px solid rgba(255, 107, 107, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .info-card:hover {
+            transform: translateY(-5px);
+            border-color: #ff6b6b;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        .info-card-icon {
+            font-size: 2.5rem;
+            color: #ff6b6b;
+            margin-bottom: 1rem;
+            animation: pulse 2s ease-in-out infinite;
+        }
+        
+        .info-card h3 {
+            font-size: 1.5rem;
+            color: #ff6b6b;
+            margin-bottom: 0.8rem;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+        
+        .info-card p {
+            color: #e2e8f0;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+        
+        .info-card a {
+            color: #ff6b6b;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+        
+        .info-card a:hover {
+            color: #ff5252;
+            text-decoration: underline;
+        }
+        
+        /* Horaires */
+        .hours {
+            background-color: rgba(30, 58, 138, 0.8);
+            border-radius: 15px;
+            padding: 2rem;
+            border: 2px solid rgba(255, 107, 107, 0.3);
+            animation: fadeInUp 0.8s ease-out 0.4s both;
+        }
+        
+        .hours h3 {
+            font-size: 1.5rem;
+            color: #ff6b6b;
+            margin-bottom: 1.5rem;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+        
+        .hours-list {
+            list-style: none;
+        }
+        
+        .hours-list li {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.8rem 0;
+            border-bottom: 1px solid rgba(255, 107, 107, 0.2);
+            color: #e2e8f0;
+        }
+        
+        .hours-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .hours-list strong {
+            color: #ff6b6b;
+        }
+        
+        /* Réseau sociaux */
+        .social-links {
+            background-color: rgba(30, 58, 138, 0.8);
+            border-radius: 15px;
+            padding: 2rem;
+            border: 2px solid rgba(255, 107, 107, 0.3);
+            margin-top: 2rem;
+            animation: fadeInUp 0.8s ease-out 0.5s both;
+        }
+        
+        .social-links h3 {
+            font-size: 1.5rem;
+            color: #ff6b6b;
+            margin-bottom: 1.5rem;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+        
+        .social-list {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .social-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background-color: rgba(255, 107, 107, 0.2);
+            border-radius: 50%;
+            color: #ff6b6b;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            border: 2px solid #ff6b6b;
+        }
+        
+        .social-icon:hover {
+            background-color: #ff6b6b;
+            color: white;
+            transform: scale(1.15) rotate(5deg);
+        }
+        
+        /* Mapa section */
+        .map-section {
+            background-color: rgba(30, 58, 138, 0.8);
+            border-radius: 15px;
+            padding: 2.5rem;
+            border: 2px solid rgba(255, 107, 107, 0.3);
+            margin-bottom: 4rem;
+            animation: fadeInUp 0.8s ease-out;
+        }
+        
+        .map-section h2 {
+            font-size: 2rem;
+            color: #ff6b6b;
+            margin-bottom: 2rem;
+            text-align: center;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+        }
+        
+        .map-container {
+            border-radius: 10px;
+            overflow: hidden;
+            height: 400px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        /* Message de confirmation */
+        .success-message {
+            background-color: rgba(34, 197, 94, 0.2);
+            border: 2px solid #22c55e;
+            color: #22c55e;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            text-align: center;
+            font-size: 1.1rem;
+            display: none;
+        }
+        
+        .success-message.show {
+            display: block;
+            animation: fadeInUp 0.5s ease-out;
+        }
+        
+        /* Pied de page */
+        footer {
+            background-color: rgba(30, 58, 138, 0.95);
+            padding: 2rem;
+            text-align: center;
+            margin-top: auto;
+            backdrop-filter: blur(5px);
+        }
+        
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .footer-info {
+            margin-bottom: 1.5rem;
+            color: #cbd5e1;
+        }
+        
+        .footer-copyright {
+            color: #94a3b8;
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(255, 107, 107, 0.3);
+            padding-top: 1rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 2.2rem;
+            }
+            
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .map-container {
+                height: 300px;
+            }
+            
+            .nav-menu {
+                flex-direction: column;
+                align-items: center;
+                gap: 0.8rem;
+            }
+            
+            .social-list {
+                justify-content: center;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .page-header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .contact-form,
+            .info-card,
+            .hours,
+            .social-links {
+                padding: 1.5rem;
+            }
+            
+            .map-container {
+                height: 250px;
+            }
+            
+            main {
+                padding: 1.5rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- En-tête avec logo -->
+    <header>
+        <div class="logo-container">
+            <div class="logo">🏢</div>
+            <div class="company-name">Groupe La Passerelle</div>
+        </div>
+    </header>
+    
+    <!-- Menu de navigation principal -->
+    <nav>
+        <ul class="nav-menu">
+            <li><a href="accueil.html" class="nav-link">Accueil</a></li>
+            <li><a href="presentation.html" class="nav-link">Présentation</a></li>
+            <li><a href="services.html" class="nav-link">Services</a></li>
+            <li><a href="equi.html" class="nav-link">notre equipe</a></li>
+            <li><a href="galerie.html" class="nav-link">galerie</a></li>
+            <li><a href="faq.html" class="nav-link">FAQ</a></li>
+            <li><a href="formulaire.html" class="nav-link">inscription</a></li>
+            <li><a href="avantage.html" class="nav-link">avantages</a></li>
+            <li><a href="contact.html" class="nav-link active">contact</a></li>
+            <li><a href="close.html" class="nav-link">close</a></li>
+        </ul>
+    </nav>
+    
+    <!-- Contenu principal -->
+    <main>
+        <section class="page-header">
+            <h1>Nous Contacter</h1>
+            <p>Vous avez des questions ? Notre équipe est prête à vous aider. N'hésitez pas à nous contacter par téléphone, email ou formulaire.</p>
+        </section>
+        
+        <!-- Conteneur contact -->
+        <div class="contact-container">
+            <!-- Formulaire de contact -->
+            <div class="contact-form">
+                <h2>Formulaire de Contact</h2>
+                <div class="success-message" id="successMessage">
+                    ✓ Merci ! Votre message a été envoyé avec succès. Nous vous répondrons dans les 24 heures.
+                </div>
+                
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Nom Complet *</label>
+                        <input type="text" id="name" name="name" placeholder="Votre nom" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Adresse Email *</label>
+                        <input type="email" id="email" name="email" placeholder="votre@email.com" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Téléphone</label>
+                        <input type="tel" id="phone" name="phone" placeholder="+242 XXXXXXXXX">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="subject">Sujet *</label>
+                        <select id="subject" name="subject" required>
+                            <option value="">-- Sélectionner un sujet --</option>
+                            <option value="services">Informations sur nos services</option>
+                            <option value="support">Support technique</option>
+                            <option value="partenariat">Partenariat</option>
+                            <option value="devis">Demande de devis</option>
+                            <option value="autre">Autre</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Message *</label>
+                        <textarea id="message" name="message" placeholder="Votre message..." required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-button">
+                        <i class="fas fa-paper-plane"></i> Envoyer le Message
+                    </button>
+                </form>
+            </div>
+            
+            <!-- Informations de contact -->
+            <div class="contact-info">
+                <div class="info-card">
+                    <div class="info-card-icon">📞</div>
+                    <h3>Téléphone</h3>
+                    <p>Appelez-nous directement :</p>
+                    <a href="tel:+2429492376"><strong>+242 9492376</strong></a>
+                    <p style="margin-top: 1rem; font-size: 0.9rem; color: #cbd5e1;">Disponible du lundi au samedi, 8h à 18h</p>
+                </div>
+                
+                <div class="info-card">
+                    <div class="info-card-icon">📧</div>
+                    <h3>Email</h3>
+                    <p>Envoyez-nous un message :</p>
+                    <a href="mailto:contact@lapasserelle.cg"><strong>contact@lapasserelle.cg</strong></a>
+                    <p style="margin-top: 1rem; font-size: 0.9rem; color: #cbd5e1;">Réponse garantie dans les 24 heures</p>
+                </div>
+                
+                <div class="info-card">
+                    <div class="info-card-icon">📍</div>
+                    <h3>Adresse</h3>
+                    <p><strong>Groupe La Passerelle</strong></p>
+                    <p>Centre-ville<br>Brazzaville, Congo</p>
+                    <p style="margin-top: 1rem; font-size: 0.9rem; color: #cbd5e1;">Venez nous rencontrer en personne</p>
+                </div>
+                
+                <div class="hours">
+                    <h3>📅 Horaires d'Ouverture</h3>
+                    <ul class="hours-list">
+                        <li>
+                            <span>Lundi - Vendredi</span>
+                            <strong>8h00 - 18h00</strong>
+                        </li>
+                        <li>
+                            <span>Samedi</span>
+                            <strong>9h00 - 13h00</strong>
+                        </li>
+                        <li>
+                            <span>Dimanche</span>
+                            <strong>Fermé</strong>
+                        </li>
+                        <li>
+                            <span>Jours fériés</span>
+                            <strong>Fermé</strong>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="social-links">
+                    <h3>Suivez-nous</h3>
+                    <div class="social-list">
+                        <a href="#" class="social-icon" title="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="social-icon" title="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-icon" title="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="social-icon" title="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="social-icon" title="WhatsApp">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Section Carte -->
+        <section class="map-section">
+            <h2>Localisation</h2>
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3987.6597280821426!2d15.542222!3d-4.264546!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x19a0aff1d9999999%3A0x4a1a1a1a1a1a1a1a!2sBrazzaville%2C%20Congo!5e0!3m2!1sfr!2scg!4v1234567890" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Pied de page -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-info">
+                <p><strong>Groupe La Passerelle</strong> - Experts en Solutions Immobilières Digitales</p>
+                <p>Valorisation immobilière et création de sites d'agences innovants</p>
+            </div>
+            
+            <div class="footer-copyright">
+                <p>© 2026 Groupe La Passerelle. Tous droits réservés.</p>
+                <p>Site développé avec HTML5, CSS3 et JavaScript</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Script pour formulaire -->
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Récupérer les valeurs du formulaire
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+            
+            // Validation simple
+            if (!name || !email || !subject || !message) {
+                alert('Veuillez remplir tous les champs obligatoires (*) !');
+                return;
+            }
+            
+            // Afficher le message de succès
+            const successMessage = document.getElementById('successMessage');
+            successMessage.classList.add('show');
+            
+            // Réinitialiser le formulaire
+            this.reset();
+            
+            // Masquer le message après 5 secondes
+            setTimeout(function() {
+                successMessage.classList.remove('show');
+            }, 5000);
+            
+            // En production, vous enverriez les données à un serveur
+            console.log({
+                name: name,
+                email: email,
+                phone: phone,
+                subject: subject,
+                message: message
+            });
+        });
+        
+        // Animation au chargement
+        window.addEventListener('load', function() {
+            console.log('Page de contact chargée avec succès!');
+        });
+    </script>
+</body>
+</html>

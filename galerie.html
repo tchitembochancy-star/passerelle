@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galerie - Groupe La Passerelle</title>
+    <style>
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes glow {
+            0%, 100% {
+                box-shadow: 0 0 5px rgba(255, 107, 107, 0.3);
+            }
+            50% {
+                box-shadow: 0 0 20px rgba(255, 107, 107, 0.6);
+            }
+        }
+
+        @keyframes headerBGMove {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+            100% { transform: translateY(0); }
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes slideFromLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        /* ===== BASE ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Segoe UI, Arial, sans-serif;
+            background-image: 
+                linear-gradient(rgba(10, 36, 99, 0.75), rgba(10, 36, 99, 0.75)),
+                url('bn1.jpg');
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+            background-color: #0a2463;
+            color: #fff;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* ===== HEADER ===== */
+        header {
+            background-image: linear-gradient(rgba(10,36,99,0.6), rgba(10,36,99,0.75)), url('bn1.jpg');
+            background-size: cover;
+            background-position: center;
+            padding: 2.2rem 2.5rem;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.35);
+            animation: headerBGMove 20s linear infinite, fadeInDown 0.6s ease-out;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #ff6b6b;
+            animation: slideInLeft 0.8s ease-out;
+        }
+
+        .company-name {
+            font-size: 1.8rem;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+
+        /* ===== NAV ===== */
+        nav {
+            background: rgba(30, 64, 175, 0.95);
+            padding: 1rem 2rem;
+            animation: fadeInDown 0.8s ease-out 0.2s both;
+            backdrop-filter: blur(5px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-menu {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.5rem;
+            list-style: none;
+        }
+
+        .nav-link {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            padding: 0.5rem 1.2rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            background: #ff6b6b;
+            animation: glow 1.5s ease-in-out infinite;
+            transform: translateY(-2px);
+        }
+
+        /* ===== MAIN ===== */
+        main {
+            flex: 1;
+            max-width: 1400px;
+            margin: auto;
+            padding: 3rem 2rem;
+            width: 100%;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 2px solid #ff6b6b;
+        }
+
+        .page-header h1 {
+            color: #ff6b6b;
+            font-size: 3rem;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8), 0 0 20px rgba(0, 0, 0, 0.6);
+            animation: fadeInDown 0.8s ease-out 0.3s both;
+            margin-bottom: 1rem;
+        }
+
+        .page-header p {
+            max-width: 800px;
+            margin: auto;
+            font-size: 1.2rem;
+            color: #ffffff;
+            text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.8);
+            animation: fadeInUp 0.8s ease-out 0.5s both;
+        }
+
+        /* ===== GALERIE ===== */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.8rem;
+            margin-bottom: 3rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            cursor: pointer;
+            border: 2px solid rgba(255, 107, 107, 0.3);
+            height: 250px;
+            animation: slideFromLeft 0.8s ease-out;
+            transition: all 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            border-color: #ff6b6b;
+            animation: glow 1.5s ease-in-out infinite;
+            transform: translateY(-5px);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.4s ease;
+            filter: brightness(1.1) contrast(1.05);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+            filter: brightness(1.3) contrast(1.15);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.55);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: 0.4s;
+            font-size: 2rem;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        /* ===== LIGHTBOX ===== */
+        .lightbox {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.95);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            animation: fadeInUp 0.4s ease-out;
+        }
+
+        .lightbox.active {
+            display: flex;
+            animation: fadeInUp 0.4s ease-out;
+        }
+
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 10px;
+            border: 4px solid #ff6b6b;
+            box-shadow: 0 0 30px rgba(255, 107, 107, 0.5);
+            animation: scaleIn 0.4s ease-out;
+        }
+
+        .lightbox span {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 3rem;
+            color: #fff;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .lightbox span:hover {
+            color: #ff6b6b;
+            transform: scale(1.2);
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: rgba(30, 58, 138, 0.95);
+            padding: 2rem;
+            text-align: center;
+            margin-top: auto;
+        }
+
+        footer p {
+            color: #cbd5e1;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 2.2rem;
+            }
+
+            .page-header p {
+                font-size: 1rem;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 1rem;
+            }
+
+            .gallery-item {
+                height: 200px;
+            }
+
+            main {
+                padding: 2rem 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .page-header h1 {
+                font-size: 1.8rem;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-item {
+                height: 250px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo-container">
+        <div class="logo">LP</div>
+        <div class="company-name">Groupe La Passerelle</div>
+    </div>
+</header>
+
+<nav>
+    <ul class="nav-menu">
+        <li><a href="accueil.html" class="nav-link">Accueil</a></li>
+            <li><a href="presentation.html" class="nav-link">Présentation</a></li>
+            <li><a href="services.html" class="nav-link">Services</a></li>
+            <li><a href="equi.html" class="nav-link">notre equipe</a></li>
+            <li><a href="galerie.html" class="nav-link active">galerie</a></li>
+            <li><a href="faq.html" class="nav-link">FAQ</a></li>
+            <li><a href="formulaire.html" class="nav-link">inscription</a></li>
+            <li><a href="avantage.html" class="nav-link">avantages</a></li>
+            <li><a href="contact.html" class="nav-link">contact</a></li>
+            <li><a href="close.html" class="nav-link">close</a></li>
+    </ul>
+</nav>
+
+<main>
+    <section class="page-header">
+        <h1>Notre Galerie</h1>
+        <p>Découvrez nos projets immobiliers, réalisations, événements et actualités à travers notre galerie photo professionnelle.</p>
+    </section>
+
+    <section class="gallery-grid">
+        <!-- IMAGES GALERIE MAISONS ET VOITURES -->
+        <div class="gallery-item"><img src="maisonk.jpg" alt="Maison moderne 1"><div class="gallery-overlay">📸</div></div>
+        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8ZW58MHx8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=60" alt="Maison luxe"><div class="gallery-overlay">📸</div></div>
+        <div class="gallery-item"><img src="mn.jpg" alt="Voiture premium 1"><div class="gallery-overlay">📸</div></div>
+        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1449844908441-8829872d2607?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8ZW58MHx8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=60" alt="Maison contemporaine"><div class="gallery-overlay">📸</div></div>
+        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8ZW58MHx8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=60" alt="Voiture sport"><div class="gallery-overlay">📸</div></div>
+        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8ZW58MHx8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=60" alt="Maison design"><div class="gallery-overlay">📸</div></div>
+        <div class="gallery-item"><img src="image.png" alt="Voiture élégante"><div class="gallery-overlay">📸</div></div>
+        <div class="gallery-item"><img src="maisons.jpg" alt="Maison jardin"><div class="gallery-overlay">📸</div></div>
+        <div class="gallery-item"><img src="maisonx.jpg" alt="Voiture luxury"><div class="gallery-overlay">📸</div></div>
+        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8ZW58MHx8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=60" alt="Maison élégante"><div class="gallery-overlay">📸</div></div>
+        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1483389127117-b6a2102724ae?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8ZW58MHx8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=60" alt="Voiture performance"><div class="gallery-overlay">📸</div></div>
+        <div class="gallery-item"><img src="mp.jpg" alt="Maison résidence"><div class="gallery-overlay">📸</div></div>
+    </section>
+</main>
+
+<footer>
+    <p>© 2026 Groupe La Passerelle — Tous droits réservés</p>
+</footer>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox">
+    <span onclick="closeLightbox()">×</span>
+    <img id="lightbox-img" alt="Image agrandie">
+</div>
+
+<script>
+const items = document.querySelectorAll('.gallery-item img');
+const lightbox = document.getElementById('lightbox');
+const lightImg = document.getElementById('lightbox-img');
+
+items.forEach(img => {
+    img.onclick = () => {
+        lightbox.classList.add('active');
+        lightImg.src = img.src;
+    }
+});
+
+function closeLightbox() {
+    lightbox.classList.remove('active');
+}
+
+// Fermer la lightbox avec la touche Escape
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        closeLightbox();
+    }
+});
+
+// Fermer la lightbox en cliquant en dehors de l'image
+lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) {
+        closeLightbox();
+    }
+});
+</script>
+
+</body>
+</html>

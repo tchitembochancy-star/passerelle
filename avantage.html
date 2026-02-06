@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avantages - Groupe La Passerelle</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes glow {
+            0%, 100% {
+                box-shadow: 0 0 5px rgba(255, 107, 107, 0.3);
+            }
+            50% {
+                box-shadow: 0 0 20px rgba(255, 107, 107, 0.6);
+            }
+        }
+
+        @keyframes headerBGMove {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+            100% { transform: translateY(0); }
+        }
+
+        @keyframes slideFromLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+        
+        /* Styles généraux */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background-image: 
+                linear-gradient(rgba(10, 36, 99, 0.85), rgba(10, 36, 99, 0.9)),
+                url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=2070');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-color: #0a2463;
+            color: white;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        /* En-tête */
+        header {
+            background-image: linear-gradient(rgba(10,36,99,0.6), rgba(10,36,99,0.75)), url('bn1.jpg');
+            background-size: cover;
+            background-position: center;
+            padding: 2.2rem 2.5rem;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.35);
+            animation: headerBGMove 20s linear infinite, fadeInDown 0.6s ease-out;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .logo {
+            color: #ff6b6b;
+            font-size: 2.8rem;
+            font-weight: bold;
+            animation: float 4s ease-in-out infinite, slideInLeft 0.8s ease-out;
+        }
+        
+        .company-name {
+            font-size: 1.9rem;
+            color: white;
+            text-shadow: 0 2px 6px rgba(0,0,0,0.5);
+        }
+        
+        /* Menu de navigation */
+        nav {
+            background-color: rgba(30, 64, 175, 0.95);
+            padding: 1rem 2rem;
+            animation: fadeInDown 0.8s ease-out 0.2s both;
+            backdrop-filter: blur(5px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .nav-menu {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            list-style: none;
+        }
+        
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            padding: 0.5rem 1.2rem;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            background-color: rgba(255, 255, 255, 0.1);
+            animation: fadeInUp 0.6s ease-out;
+        }
+        
+        .nav-link:hover {
+            background-color: #ff6b6b;
+            color: white;
+            transform: translateY(-2px);
+            animation: glow 1.5s ease-in-out infinite;
+        }
+        
+        .nav-link.active {
+            background-color: #ff6b6b;
+            color: white;
+            box-shadow: 0 0 10px rgba(255, 107, 107, 0.5);
+        }
+        
+        /* Contenu principal */
+        main {
+            flex: 1;
+            padding: 3rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+        }
+        
+        .page-header {
+            text-align: center;
+            margin-bottom: 4rem;
+            padding-bottom: 2rem;
+            border-bottom: 2px solid #ff6b6b;
+        }
+        
+        .page-header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #ff6b6b;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8), 0 0 20px rgba(0, 0, 0, 0.6);
+            animation: fadeInDown 0.8s ease-out 0.3s both;
+        }
+        
+        .page-header p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto;
+            color: #ffffff;
+            text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.8);
+            animation: fadeInUp 0.8s ease-out 0.5s both;
+        }
+        
+        /* Section titre */
+        .section-title {
+            font-size: 2.5rem;
+            color: #ff6b6b;
+            margin-bottom: 3rem;
+            text-align: center;
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8);
+            animation: fadeInDown 0.8s ease-out;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background-color: #ff6b6b;
+            border-radius: 2px;
+        }
+        
+        /* Grille d'avantages */
+        .advantages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-bottom: 4rem;
+        }
+        
+        .advantage-card {
+            background-color: rgba(30, 58, 138, 0.8);
+            border-radius: 15px;
+            padding: 2.5rem;
+            border: 2px solid rgba(255, 107, 107, 0.3);
+            transition: all 0.3s ease;
+            animation: fadeInUp 0.7s ease-out;
+            text-align: center;
+        }
+        
+        .advantage-card:hover {
+            transform: translateY(-10px);
+            border-color: #ff6b6b;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+            background-color: rgba(30, 58, 138, 0.95);
+        }
+        
+        .advantage-icon {
+            font-size: 3.5rem;
+            color: #ff6b6b;
+            margin-bottom: 1.5rem;
+            animation: pulse 2s ease-in-out infinite;
+        }
+        
+        .advantage-card h3 {
+            font-size: 1.8rem;
+            color: #ff6b6b;
+            margin-bottom: 1rem;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+        
+        .advantage-card p {
+            font-size: 1rem;
+            color: #e2e8f0;
+            line-height: 1.8;
+        }
+        
+        /* Section comparaison */
+        .comparison-section {
+            background-color: rgba(30, 64, 175, 0.7);
+            border-radius: 15px;
+            padding: 3rem;
+            margin-bottom: 4rem;
+            border: 2px solid #ff6b6b;
+            animation: fadeInUp 0.8s ease-out;
+        }
+        
+        .comparison-section h2 {
+            font-size: 2.2rem;
+            color: #ff6b6b;
+            margin-bottom: 2.5rem;
+            text-align: center;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+        }
+        
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 2rem;
+        }
+        
+        .comparison-table th {
+            background-color: rgba(255, 107, 107, 0.2);
+            color: #ff6b6b;
+            padding: 1.5rem;
+            text-align: left;
+            border-bottom: 2px solid #ff6b6b;
+            font-size: 1.1rem;
+        }
+        
+        .comparison-table td {
+            padding: 1.5rem;
+            border-bottom: 1px solid rgba(255, 107, 107, 0.2);
+            color: #e2e8f0;
+        }
+        
+        .comparison-table tr:hover {
+            background-color: rgba(255, 107, 107, 0.1);
+        }
+        
+        .check-mark {
+            color: #22c55e;
+            font-weight: bold;
+            font-size: 1.3rem;
+        }
+        
+        .x-mark {
+            color: #ef4444;
+            font-weight: bold;
+            font-size: 1.3rem;
+        }
+        
+        /* Section caractéristiques clés */
+        .features-section {
+            background-color: rgba(30, 64, 175, 0.7);
+            border-radius: 15px;
+            padding: 3rem;
+            margin-bottom: 4rem;
+            border: 2px solid #ff6b6b;
+            animation: fadeInUp 0.8s ease-out;
+        }
+        
+        .features-section h2 {
+            font-size: 2.2rem;
+            color: #ff6b6b;
+            margin-bottom: 2.5rem;
+            text-align: center;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+        }
+        
+        .features-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        
+        .feature-item {
+            background-color: rgba(30, 58, 138, 0.6);
+            padding: 1.8rem;
+            border-radius: 10px;
+            border-left: 4px solid #ff6b6b;
+            animation: slideFromLeft 0.6s ease-out;
+        }
+        
+        .feature-item h4 {
+            color: #ff6b6b;
+            margin-bottom: 0.8rem;
+            font-size: 1.3rem;
+        }
+        
+        .feature-item p {
+            color: #cbd5e1;
+            font-size: 0.95rem;
+        }
+        
+        /* Section CTA */
+        .cta-section {
+            background-color: rgba(30, 64, 175, 0.8);
+            border-radius: 15px;
+            padding: 4rem;
+            text-align: center;
+            border: 2px solid #ff6b6b;
+            margin-top: 3rem;
+            animation: fadeInUp 0.8s ease-out;
+        }
+        
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: #ff6b6b;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+        }
+        
+        .cta-section p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2.5rem;
+            color: #e2e8f0;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .cta-button {
+            padding: 1rem 2.5rem;
+            font-size: 1.1rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .primary-button {
+            background-color: #ff6b6b;
+            color: white;
+            border: 2px solid #ff6b6b;
+        }
+        
+        .primary-button:hover {
+            background-color: #ff5252;
+            border-color: #ff5252;
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(255, 107, 107, 0.4);
+        }
+        
+        .secondary-button {
+            background-color: transparent;
+            color: #ff6b6b;
+            border: 2px solid #ff6b6b;
+        }
+        
+        .secondary-button:hover {
+            background-color: #ff6b6b;
+            color: white;
+            transform: scale(1.05);
+        }
+        
+        /* Pied de page */
+        footer {
+            background-color: rgba(30, 58, 138, 0.95);
+            padding: 2rem;
+            text-align: center;
+            margin-top: auto;
+            backdrop-filter: blur(5px);
+        }
+        
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .footer-info {
+            margin-bottom: 1.5rem;
+            color: #cbd5e1;
+        }
+        
+        .footer-copyright {
+            color: #94a3b8;
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(255, 107, 107, 0.3);
+            padding-top: 1rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 2.2rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .nav-menu {
+                flex-direction: column;
+                align-items: center;
+                gap: 0.8rem;
+            }
+            
+            .cta-section {
+                padding: 2.5rem 1.5rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .comparison-section,
+            .features-section {
+                padding: 2rem 1.5rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .page-header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .advantage-card {
+                padding: 1.5rem;
+            }
+            
+            .comparison-table th,
+            .comparison-table td {
+                padding: 1rem;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- En-tête avec logo -->
+    <header>
+        <div class="logo-container">
+            <div class="logo">🏢</div>
+            <div class="company-name">Groupe La Passerelle</div>
+        </div>
+    </header>
+    
+    <!-- Menu de navigation principal -->
+    <nav>
+        <ul class="nav-menu">
+            <li><a href="accueil.html" class="nav-link">Accueil</a></li>
+            <li><a href="presentation.html" class="nav-link">Présentation</a></li>
+            <li><a href="services.html" class="nav-link">Services</a></li>
+            <li><a href="equi.html" class="nav-link">notre equipe</a></li>
+            <li><a href="galerie.html" class="nav-link">galerie</a></li>
+            <li><a href="faq.html" class="nav-link">FAQ</a></li>
+            <li><a href="formulaire.html" class="nav-link">inscription</a></li>
+            <li><a href="avantage.html" class="nav-link active">avantages</a></li>
+            <li><a href="contact.html" class="nav-link">contact</a></li>
+            <li><a href="close.html" class="nav-link">close</a></li>
+        </ul>
+    </nav>
+    
+    <!-- Contenu principal -->
+    <main>
+        <section class="page-header">
+            <h1>Nos Avantages Exclusifs</h1>
+            <p>Découvrez pourquoi des centaines d'entreprises immobilières nous font confiance pour digitaliser leur activité et booster leurs ventes</p>
+        </section>
+        
+        <!-- Section avantages principales -->
+        <section>
+            <h2 class="section-title">Pourquoi Choisir Groupe La Passerelle ?</h2>
+            
+            <div class="advantages-grid">
+                <div class="advantage-card">
+                    <div class="advantage-icon">⚡</div>
+                    <h3>Rapidité d'Implémentation</h3>
+                    <p>Mise en ligne en 2 à 3 semaines. Nos solutions sont pré-configurées et prêtes à l'emploi pour un démarrage rapide et efficace.</p>
+                </div>
+                
+                <div class="advantage-card">
+                    <div class="advantage-icon">🔒</div>
+                    <h3>Sécurité Maximale</h3>
+                    <p>Chiffrement SSL, conformité RGPD, sauvegarde automatique. Vos données et celles de vos clients sont protégées 24/7.</p>
+                </div>
+                
+                <div class="advantage-card">
+                    <div class="advantage-icon">📱</div>
+                    <h3>Responsive & Mobile-First</h3>
+                    <p>Nos solutions s'adaptent parfaitement à tous les appareils. Vos clients naviguent facilement sur mobile, tablette ou desktop.</p>
+                </div>
+                
+                <div class="advantage-card">
+                    <div class="advantage-icon">📈</div>
+                    <h3>Augmentation des Ventes</h3>
+                    <p>En moyenne +40% de visibilité en ligne. Nos outils de marketing intégrés génèrent des leads qualifiés et des transactions plus rapides.</p>
+                </div>
+                
+                <div class="advantage-card">
+                    <div class="advantage-icon">🤝</div>
+                    <h3>Support 24/7</h3>
+                    <p>Équipe dédiée disponible par email, chat et téléphone. Assistance immédiate en cas de problème ou pour optimiser votre utilisation.</p>
+                </div>
+                
+                <div class="advantage-card">
+                    <div class="advantage-icon">💰</div>
+                    <h3>ROI Garanti</h3>
+                    <p>Retour sur investissement en moins de 3 mois. Tarifs transparents et flexibles adaptés à votre budget et vos besoins.</p>
+                </div>
+                
+                <div class="advantage-card">
+                    <div class="advantage-icon">🎨</div>
+                    <h3>Personnalisation Totale</h3>
+                    <p>Personnalisez votre branding, couleurs et contenu. Vos solutions reflètent l'identité unique de votre entreprise.</p>
+                </div>
+                
+                <div class="advantage-card">
+                    <div class="advantage-icon">📊</div>
+                    <h3>Analytics Détaillées</h3>
+                    <p>Tableaux de bord en temps réel avec statistiques complètes. Suivez vos performances et optimisez votre stratégie immobilière.</p>
+                </div>
+                
+                <div class="advantage-card">
+                    <div class="advantage-icon">🌍</div>
+                    <h3>Portée Internationale</h3>
+                    <p>Solutions multi-langues, multi-devises. Élargissez votre marché au-delà des frontières sans barrière technique.</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Section comparaison -->
+        <section class="comparison-section">
+            <h2>Avant vs Après Groupe La Passerelle</h2>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Fonctionnalité</th>
+                        <th>Avant</th>
+                        <th>Après (Groupe La Passerelle)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Présence en ligne</strong></td>
+                        <td><span class="x-mark">✗</span></td>
+                        <td><span class="check-mark">✓</span> Site professionnel 24/7</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Photos & Vidéos</strong></td>
+                        <td>Basiques</td>
+                        <td><span class="check-mark">✓</span> Professionnelles & 360°</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Visites virtuelles</strong></td>
+                        <td><span class="x-mark">✗</span></td>
+                        <td><span class="check-mark">✓</span> Immersives et intéractives</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Gestion des clients</strong></td>
+                        <td>Manuel (Excel)</td>
+                        <td><span class="check-mark">✓</span> CRM automatisé</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Marketing digital</strong></td>
+                        <td><span class="x-mark">✗</span></td>
+                        <td><span class="check-mark">✓</span> SEO, réseaux sociaux, annonces</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Support technique</strong></td>
+                        <td>Aucun</td>
+                        <td><span class="check-mark">✓</span> 24/7 dédié</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Sécurité des données</strong></td>
+                        <td>Risquée</td>
+                        <td><span class="check-mark">✓</span> Chiffrement SSL + RGPD</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Résultats quantifiables</strong></td>
+                        <td>Impossibles à mesurer</td>
+                        <td><span class="check-mark">✓</span> Analytics temps réel</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        
+        <!-- Section caractéristiques clés -->
+        <section class="features-section">
+            <h2>Caractéristiques Clés de Nos Solutions</h2>
+            <div class="features-list">
+                <div class="feature-item">
+                    <h4>🚀 Technologie Dernière Génération</h4>
+                    <p>Utilisation des frameworks web modernes (React, Vue.js) pour une performance optimale et une expérience utilisateur exceptionnelle.</p>
+                </div>
+                
+                <div class="feature-item">
+                    <h4>⚙️ Intégrations Seamless</h4>
+                    <p>Connectez vos outils favoris : portails immobiliers, systèmes de paiement, réseaux sociaux et bien d'autres sans friction.</p>
+                </div>
+                
+                <div class="feature-item">
+                    <h4>🔄 Mises à Jour Automatiques</h4>
+                    <p>Vos solutions évoluent constamment avec les nouvelles fonctionnalités, corrections et améliorations sans intervention de votre part.</p>
+                </div>
+                
+                <div class="feature-item">
+                    <h4>📧 E-mails Marketing Automatisés</h4>
+                    <p>Campagnes email ciblées et personnalisées pour transformer vos visiteurs en clients et augmenter la fidélité.</p>
+                </div>
+                
+                <div class="feature-item">
+                    <h4>🎯 Conversion Optimisée</h4>
+                    <p>Optimisation des pages pour le conversion. Chaque élément est conçu pour guider vos visiteurs vers l'action (contact, achat, location).</p>
+                </div>
+                
+                <div class="feature-item">
+                    <h4>🌐 Multi-Régions & Multi-Langues</h4>
+                    <p>Déployez vos solutions dans plusieurs pays et langues. Un seul dashboard pour gérer plusieurs marchés locaux.</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Section CTA -->
+        <section class="cta-section">
+            <h2>Prêt à Transformer Votre Activité Immobilière ?</h2>
+            <p>Rejoignez les centaines d'agences et promoteurs qui ont déjà boosté leurs ventes grâce à nos solutions digitales innovantes.</p>
+            
+            <div class="cta-buttons">
+                <a href="formulaire.html" class="cta-button primary-button">
+                    <i class="fas fa-user-check"></i> S'inscrire Maintenant
+                </a>
+                <a href="faq.html" class="cta-button secondary-button">
+                    <i class="fas fa-question-circle"></i> Plus de Questions ?
+                </a>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Pied de page -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-info">
+                <p><strong>Groupe La Passerelle</strong> - Experts en Solutions Immobilières Digitales</p>
+                <p>Valorisation immobilière et création de sites d'agences innovants</p>
+            </div>
+            
+            <div class="footer-copyright">
+                <p>© 2026 Groupe La Passerelle. Tous droits réservés.</p>
+                <p>Site développé avec HTML5, CSS3 et JavaScript</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

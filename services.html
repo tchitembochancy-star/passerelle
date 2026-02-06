@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nos Services - Groupe La Passerelle</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        @keyframes glow {
+            0%, 100% {
+                box-shadow: 0 0 5px rgba(255, 107, 107, 0.3);
+            }
+            50% {
+                box-shadow: 0 0 20px rgba(255, 107, 107, 0.6);
+            }
+        }
+
+        @keyframes headerBGMove {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+            100% { transform: translateY(0); }
+        }
+
+        /* Styles généraux */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background-image: 
+                linear-gradient(rgba(10, 36, 99, 0.85), rgba(10, 36, 99, 0.9)),
+                url('https://images.unsplash.com/photo-1522542550221-31fd19575a2d?q=80&w=2070');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-color: #0a2463;
+            color: white;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        /* En-tête */
+        header {
+            background-image: linear-gradient(rgba(10,36,99,0.6), rgba(10,36,99,0.75)), url('bn1.jpg');
+            background-size: cover;
+            background-position: center;
+            padding: 2.2rem 2.5rem;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.35);
+            animation: headerBGMove 20s linear infinite, fadeInDown 0.6s ease-out;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(5px);
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo {
+            color: #ff6b6b;
+            font-size: 2.8rem;
+            font-weight: bold;
+            animation: float 4s ease-in-out infinite, slideInLeft 0.8s ease-out;
+        }
+
+        .company-name {
+            font-size: 1.9rem;
+            color: white;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Menu de navigation */
+        nav {
+            background-color: rgba(30, 64, 175, 0.95);
+            padding: 1rem 2rem;
+            animation: fadeInDown 0.8s ease-out 0.2s both;
+            backdrop-filter: blur(5px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .nav-menu {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            list-style: none;
+        }
+        
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            padding: 0.5rem 1.2rem;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            background-color: rgba(255, 255, 255, 0.1);
+            animation: fadeInUp 0.6s ease-out;
+        }
+        
+        .nav-link:hover {
+            background-color: #ff6b6b;
+            color: white;
+            transform: translateY(-2px);
+            animation: glow 1.5s ease-in-out infinite;
+        }
+        
+        .nav-link.active {
+            background-color: #ff6b6b;
+            color: white;
+            box-shadow: 0 0 10px rgba(255, 107, 107, 0.5);
+        }
+        
+        /* Contenu principal */
+        main {
+            flex: 1;
+            padding: 3rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            width: 100%;
+        }
+        
+        .page-header {
+            text-align: center;
+            margin-bottom: 4rem;
+            padding-bottom: 2rem;
+            border-bottom: 2px solid #ff6b6b;
+        }
+        
+        .page-header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #ff6b6b;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8), 0 0 20px rgba(0, 0, 0, 0.6);
+            animation: fadeInDown 0.8s ease-out 0.3s both;
+        }
+        
+        .page-header p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto;
+            color: #ffffff;
+            text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.8);
+            animation: fadeInUp 0.8s ease-out 0.5s both;
+        }
+        
+        /* Section des services */
+        .services-section {
+            margin-bottom: 5rem;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            color: #ff6b6b;
+            margin-bottom: 3rem;
+            text-align: center;
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8);
+            animation: fadeInDown 0.8s ease-out;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background-color: #ff6b6b;
+            border-radius: 2px;
+        }
+        
+        /* Grille des services */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            margin-bottom: 4rem;
+        }
+        
+        .service-card {
+            background-color: rgba(30, 58, 138, 0.8);
+            border-radius: 15px;
+            padding: 2.5rem;
+            transition: all 0.4s ease;
+            border: 2px solid rgba(255, 107, 107, 0.2);
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 0.7s ease-out;
+            min-height: 350px;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background-color: #ff6b6b;
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+            transform-origin: left;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+            border-color: #ff6b6b;
+            animation: pulse 2s infinite;
+        }
+        
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .service-icon {
+            font-size: 3.5rem;
+            color: #ff6b6b;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        
+        .service-card h3 {
+            font-size: 1.8rem;
+            color: #ff6b6b;
+            margin-bottom: 1.2rem;
+            text-align: center;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+        }
+        
+        .service-description {
+            color: #e2e8f0;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+        }
+        
+        .service-features {
+            margin-bottom: 2rem;
+            color: #cbd5e1;
+        }
+        
+        .service-features li {
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        
+        .service-features li::before {
+            content: '✓';
+            color: #ff6b6b;
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+        
+        .service-button {
+            display: inline-block;
+            background-color: transparent;
+            color: #ff6b6b;
+            border: 2px solid #ff6b6b;
+            padding: 0.8rem 1.8rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            text-align: center;
+            margin-top: auto;
+        }
+        
+        .service-button:hover {
+            background-color: #ff6b6b;
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
+        }
+        
+        /* Section expertise */
+        .expertise-section {
+            background-color: rgba(30, 64, 175, 0.7);
+            border-radius: 15px;
+            padding: 3.5rem;
+            margin-bottom: 4rem;
+            border: 2px solid #ff6b6b;
+            animation: slideInRight 0.8s ease-out;
+        }
+        
+        .expertise-content {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+        }
+        
+        .expertise-text {
+            flex: 2;
+        }
+        
+        .expertise-text h2 {
+            font-size: 2.2rem;
+            color: #ff6b6b;
+            margin-bottom: 1.5rem;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+        }
+        
+        .expertise-text p {
+            color: #e2e8f0;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+        }
+        
+        .expertise-image {
+            flex: 1;
+            text-align: center;
+            font-size: 8rem;
+            color: #ff6b6b;
+            animation: pulse 3s infinite;
+        }
+        
+        /* Section processus */
+        .process-section {
+            margin-bottom: 5rem;
+        }
+        
+        .process-steps {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-top: 3rem;
+            position: relative;
+        }
+        
+        .process-step {
+            flex: 1;
+            min-width: 250px;
+            text-align: center;
+            padding: 2rem;
+            background-color: rgba(30, 58, 138, 0.7);
+            border-radius: 10px;
+            border: 1px solid rgba(255, 107, 107, 0.3);
+            position: relative;
+            animation: fadeInUp 0.7s ease-out;
+        }
+        
+        .process-step:hover {
+            border-color: #ff6b6b;
+            animation: glow 1.5s ease-in-out infinite;
+        }
+        
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background-color: #ff6b6b;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 0 auto 1.5rem;
+            box-shadow: 0 0 10px rgba(255, 107, 107, 0.5);
+        }
+        
+        .process-step h3 {
+            color: #ff6b6b;
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+        }
+        
+        /* Section CTA */
+        .cta-section {
+            background-color: rgba(30, 64, 175, 0.8);
+            border-radius: 15px;
+            padding: 4rem;
+            text-align: center;
+            border: 2px solid #ff6b6b;
+            margin-top: 3rem;
+            animation: fadeInUp 0.8s ease-out;
+        }
+        
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: #ff6b6b;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+        }
+        
+        .cta-section p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2.5rem;
+            color: #e2e8f0;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+        }
+        
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .cta-button {
+            padding: 1rem 2.5rem;
+            font-size: 1.2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        
+        .primary-button {
+            background-color: #ff6b6b;
+            color: white;
+            border: 2px solid #ff6b6b;
+        }
+        
+        .primary-button:hover {
+            background-color: #ff5252;
+            border-color: #ff5252;
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(255, 107, 107, 0.4);
+        }
+        
+        .secondary-button {
+            background-color: transparent;
+            color: #ff6b6b;
+            border: 2px solid #ff6b6b;
+        }
+        
+        .secondary-button:hover {
+            background-color: #ff6b6b;
+            color: white;
+            transform: scale(1.05);
+        }
+        
+        /* Pied de page */
+        footer {
+            background-color: rgba(30, 58, 138, 0.95);
+            padding: 2rem;
+            text-align: center;
+            margin-top: auto;
+            backdrop-filter: blur(5px);
+        }
+        
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .footer-info {
+            margin-bottom: 1.5rem;
+            color: #cbd5e1;
+        }
+        
+        .footer-copyright {
+            color: #94a3b8;
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(255, 107, 107, 0.3);
+            padding-top: 1rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .services-grid {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            }
+            
+            .expertise-content {
+                flex-direction: column;
+            }
+            
+            .expertise-image {
+                order: -1;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 2.2rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .nav-menu {
+                flex-direction: column;
+                align-items: center;
+                gap: 0.8rem;
+            }
+            
+            .service-card {
+                padding: 2rem;
+            }
+            
+            .cta-section {
+                padding: 2.5rem 1.5rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .expertise-section {
+                padding: 2rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .page-header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .service-card {
+                padding: 1.5rem;
+                min-height: 300px;
+            }
+            
+            .service-icon {
+                font-size: 2.8rem;
+            }
+            
+            .service-card h3 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- En-tête avec logo -->
+    <header>
+        <div class="logo-container">
+            <div class="logo">LP</div>
+            <div class="company-name">Groupe La Passerelle</div>
+        </div>
+    </header>
+    
+    <!-- Menu de navigation principal -->
+    <nav>
+        <ul class="nav-menu">
+                 <li><a href="accueil.html" class="nav-link">Accueil</a></li>
+            <li><a href="presentation.html" class="nav-link">Présentation</a></li>
+            <li><a href="services.html" class="nav-link active">Services</a></li>
+            <li><a href="equi.html" class="nav-link">notre equipe</a></li>
+            <li><a href="galerie.html" class="nav-link">galerie</a></li>
+            <li><a href="faq.html" class="nav-link">FAQ</a></li>
+            <li><a href="formulaire.html" class="nav-link">inscription</a></li>
+            <li><a href="avantage.html" class="nav-link">avantages</a></li>
+            <li><a href="contact.html" class="nav-link">contact</a></li>
+            <li><a href="close.html" class="nav-link">close</a></li>
+        </ul>
+    </nav>
+    
+    <!-- Contenu principal -->
+    <main>
+        <section class="page-header">
+            <h1>Nos Services Immobiliers</h1>
+            <p>Des solutions numériques complètes pour valoriser vos propriétés et développer votre présence immobilière en ligne.</p>
+        </section>
+        
+        <!-- Section des services principaux -->
+        <section class="services-section">
+            <h2 class="section-title">Nos Prestations Principales</h2>
+            
+            <div class="services-grid">
+                <!-- Service 1 : Portails Immobiliers -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        🌐
+                    </div>
+                    <h3>Création de Portails Immobiliers</h3>
+                    <p class="service-description">
+                        Nous créons des sites immobiliers modernes, performants et intuitifs pour valoriser vos annonces et attirer les meilleurs acheteurs.
+                    </p>
+                    <ul class="service-features">
+                        <li>Design responsive et professionnel</li>
+                        <li>Interface facile à utiliser</li>
+                        <li>Gestion des annonces simplifiée</li>
+                        <li>Optimisé pour le SEO</li>
+                    </ul>
+                    <a href="contact.html" class="service-button">En savoir plus</a>
+                </div>
+                
+                <!-- Service 2 : Galerie Multimédia -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        📸
+                    </div>
+                    <h3>Galerie Multimédia Avancée</h3>
+                    <p class="service-description">
+                        Mettez en avant vos propriétés avec des galeries photo haute résolution, vidéos 3D et visites virtuelles immersives.
+                    </p>
+                    <ul class="service-features">
+                        <li>Photos optimisées haute qualité</li>
+                        <li>Tours virtuels 360°</li>
+                        <li>Vidéos de présentation</li>
+                        <li>Plans interactifs</li>
+                    </ul>
+                    <a href="contact.html" class="service-button">En savoir plus</a>
+                </div>
+                
+                <!-- Service 3 : SEO Immobilier -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        🔍
+                    </div>
+                    <h3>Optimisation SEO Immobilier</h3>
+                    <p class="service-description">
+                        Augmentez votre visibilité sur les moteurs de recherche et attirez davantage de visiteurs qualifiés sur vos annonces.
+                    </p>
+                    <ul class="service-features">
+                        <li>Optimisation des mots-clés</li>
+                        <li>Contenu optimisé pour Google</li>
+                        <li>Stratégie de backlinks</li>
+                        <li>Rapports mensuels détaillés</li>
+                    </ul>
+                    <a href="contact.html" class="service-button">En savoir plus</a>
+                </div>
+                
+                <!-- Service 4 : Applications Mobiles -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        📱
+                    </div>
+                    <h3>Applications Mobiles Immobilières</h3>
+                    <p class="service-description">
+                        Développez votre présence mobile avec des applications natives pour iOS et Android, accessibles partout.
+                    </p>
+                    <ul class="service-features">
+                        <li>Apps iOS et Android</li>
+                        <li>Push notifications</li>
+                        <li>Favoris et sauvegarde</li>
+                        <li>Formulaires de contact intégrés</li>
+                    </ul>
+                    <a href="contact.html" class="service-button">En savoir plus</a>
+                </div>
+                
+                <!-- Service 5 : Gestion des Leads -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        💬
+                    </div>
+                    <h3>Gestion des Leads & CRM</h3>
+                    <p class="service-description">
+                        Automatisez le suivi de vos contacts, gérez vos leads efficacement et convertissez plus de visiteurs en clients.
+                    </p>
+                    <ul class="service-features">
+                        <li>CRM immobilier intégré</li>
+                        <li>Automatisation des e-mails</li>
+                        <li>Suivi des prospects</li>
+                        <li>Analytics en temps réel</li>
+                    </ul>
+                    <a href="contact.html" class="service-button">En savoir plus</a>
+                </div>
+                
+                <!-- Service 6 : Analyse & Reporting -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        📊
+                    </div>
+                    <h3>Analyse & Reporting Immobilier</h3>
+                    <p class="service-description">
+                        Suivez la performance de vos annonces, analysez le comportement de vos visiteurs et optimisez vos stratégies.
+                    </p>
+                    <ul class="service-features">
+                        <li>Tableaux de bord personnalisés</li>
+                        <li>Analyse du trafic détaillée</li>
+                        <li>Rapports comparatifs</li>
+                        <li>KPIs immobiliers suivis</li>
+                    </ul>
+                    <a href="contact.html" class="service-button">En savoir plus</a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Section expertise -->
+        <section class="expertise-section">
+            <div class="expertise-content">
+                <div class="expertise-text">
+                    <h2>Notre Approche Immobilière Unique</h2>
+                    <p>Chez Groupe La Passerelle, nous comprenons les défis spécifiques du secteur immobilier. Notre expertise combines technologie de pointe et connaissance approfondie du marché.</p>
+                    <p>Chaque solution que nous développons est conçue pour maximiser la visibilité de vos biens, améliorer l'expérience utilisateur et augmenter vos conversions.</p>
+                    <p>Nous accompagnons agences immobilières, promoteurs et propriétaires pour transformer leur présence digitale et booster leurs ventes immobilières.</p>
+                </div>
+                <div class="expertise-image">
+                    🏘️
+                </div>
+            </div>
+        </section>
+        
+        <!-- Section processus -->
+        <section class="process-section">
+            <h2 class="section-title">Notre Processus de Collaboration</h2>
+            
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h3>Analyse de Vos Besoins</h3>
+                    <p>Étude approfondie de votre activité immobilière et de vos objectifs commerciaux</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h3>Développement Sur Mesure</h3>
+                    <p>Création de votre solution immobilière adaptée à vos spécificités et votre marché</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h3>Tests & Validation</h3>
+                    <p>Tests rigoureux pour assurer performance, sécurité et qualité de votre site</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h3>Lancement & Support</h3>
+                    <p>Mise en ligne et support continu pour assurer le succès de votre plateforme</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Section CTA -->
+        <section class="cta-section">
+            <h2>Prêt à Transformer Votre Présence Immobilière ?</h2>
+            <p>Contactez-nous pour une consultation gratuite et découvrez comment nos solutions peuvent booster votre activité immobilière et augmenter vos ventes.</p>
+            
+            <div class="cta-buttons">
+                <a href="contact.html" class="cta-button secondary-button">
+                    Nous Contacter
+                </a>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Pied de page -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-info">
+                <p><strong>Groupe La Passerelle</strong> - Entreprise de Services du Numérique</p>
+                <p>Innovation, Excellence et Confiance depuis 2015</p>
+            </div>
+            
+            <div class="footer-copyright">
+                <p>© 2026 Groupe La Passerelle. Tous droits réservés.</p>
+                <p>Site développé avec HTML5, CSS3 et JavaScript</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

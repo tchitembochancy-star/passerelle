@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Merci - Groupe La Passerelle</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Minimal styles consistent with the site */
+        @keyframes fadeInDown{from{opacity:0;transform:translateY(-30px)}to{opacity:1;transform:translateY(0)}}
+        @keyframes float{0%{transform:translateY(0)}50%{transform:translateY(-8px)}100%{transform:translateY(0)}}
+        body{font-family:Segoe UI,Arial,sans-serif;background-image:linear-gradient(rgba(10,36,99,0.85),rgba(10,36,99,0.9)),url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=2070');background-size:cover;background-attachment:fixed;color:#fff;min-height:100vh;display:flex;flex-direction:column}
+        header{background-image:linear-gradient(rgba(10,36,99,0.6),rgba(10,36,99,0.75)),url('bn1.jpg');padding:2.2rem 2.5rem;box-shadow:0 8px 20px rgba(0,0,0,0.35);animation:fadeInDown .6s;}
+        .logo-container{display:flex;align-items:center;gap:1rem}
+        .logo{color:#ff6b6b;font-size:2.8rem;font-weight:bold;animation:float 4s ease-in-out infinite}
+        .company-name{font-size:1.9rem;color:#fff}
+        nav{background-color:rgba(30,64,175,0.95);padding:1rem 2rem;backdrop-filter:blur(5px);position:sticky;top:0;z-index:1000}
+        .nav-menu{display:flex;justify-content:center;flex-wrap:wrap;gap:1.5rem;list-style:none}
+        .nav-link{color:#fff;text-decoration:none;font-weight:500;font-size:1.1rem;padding:.5rem 1.2rem;border-radius:4px;background:rgba(255,255,255,0.06)}
+        .nav-link.active{background:#ff6b6b;box-shadow:0 0 10px rgba(255,107,107,.4)}
+        main{flex:1;display:flex;align-items:center;justify-content:center;padding:3rem}
+        .card{background:rgba(30,58,138,0.9);padding:3rem;border-radius:12px;max-width:900px;text-align:center;border:2px solid rgba(255,107,107,0.25);box-shadow:0 20px 50px rgba(0,0,0,0.4)}
+        h1{color:#ff6b6b;font-size:2.6rem;margin-bottom:1rem}
+        p{color:#e6eef8;font-size:1.15rem;margin-bottom:1.2rem}
+        .actions{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-top:1.5rem}
+        .btn{padding:0.9rem 1.8rem;border-radius:8px;text-decoration:none;font-weight:600;cursor:pointer;border:2px solid #ff6b6b}
+        .btn.primary{background:#ff6b6b;color:#fff}
+        .btn.secondary{background:transparent;color:#ff6b6b}
+        .contact-line{margin-top:1rem;color:#cfe5ff}
+        footer{background:rgba(30,58,138,0.95);padding:1.5rem;text-align:center;color:#94a3b8}
+        @media(max-width:768px){main{padding:2rem}.card{padding:2rem}h1{font-size:2rem}}
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <div class="logo">🏢</div>
+            <div class="company-name">Groupe La Passerelle</div>
+        </div>
+    </header>
+    <nav>
+        <ul class="nav-menu">
+            <li><a href="accueil.html" class="nav-link">Accueil</a></li>
+            <li><a href="presentation.html" class="nav-link">Présentation</a></li>
+            <li><a href="services.html" class="nav-link">Services</a></li>
+            <li><a href="equi.html" class="nav-link">notre equipe</a></li>
+            <li><a href="galerie.html" class="nav-link">galerie</a></li>
+            <li><a href="faq.html" class="nav-link">FAQ</a></li>
+            <li><a href="formulaire.html" class="nav-link">inscription</a></li>
+            <li><a href="avantage.html" class="nav-link">avantages</a></li>
+            <li><a href="contact.html" class="nav-link">contact</a></li>
+            <li><a href="close.html" class="nav-link active">close</a></li>
+        </ul>
+    </nav>
+    <main>
+        <div class="card">
+            <h1>Merci de votre visite 🎉</h1>
+            <p>Merci d'avoir consulté le site du <strong>Groupe La Passerelle</strong>. Nous sommes ravis de votre intérêt et nous espérons vous revoir bientôt.</p>
+            <div class="actions">
+                <a href="accueil.html" class="btn primary" aria-label="Retour à l'accueil"><i aria-hidden="true" class="fas fa-home"></i> Retour à l&apos;accueil</a>
+                <a href="formulaire.html" class="btn secondary" aria-label="S'inscrire"><i aria-hidden="true" class="fas fa-user-plus"></i> S'inscrire</a>
+                <a href="tel:+2429492376" class="btn secondary" aria-label="Appeler +242 9492376"><i aria-hidden="true" class="fas fa-phone"></i> +242 9492376</a>
+            </div>
+        </div>
+    </main>
+    <footer>
+        © 2026 Groupe La Passerelle — Merci pour votre confiance
+    </footer>
+</body>
+</html>

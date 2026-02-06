@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - Groupe La Passerelle</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        @keyframes glow {
+            0%, 100% {
+                box-shadow: 0 0 5px rgba(255, 107, 107, 0.3);
+            }
+            50% {
+                box-shadow: 0 0 20px rgba(255, 107, 107, 0.6);
+            }
+        }
+
+        @keyframes headerBGMove {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+            100% { transform: translateY(0); }
+        }
+
+        /* Styles généraux */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background-image: 
+                linear-gradient(rgba(10, 36, 99, 0.85), rgba(10, 36, 99, 0.9)),
+                url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=2070');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-color: #0a2463;
+            color: white;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        /* En-tête */
+        header {
+            background-image: linear-gradient(rgba(10,36,99,0.6), rgba(10,36,99,0.75)), url('bn1.jpg');
+            background-size: cover;
+            background-position: center;
+            padding: 2.2rem 2.5rem;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.35);
+            animation: headerBGMove 20s linear infinite, fadeInDown 0.6s ease-out;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(5px);
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo {
+            color: #ff6b6b;
+            font-size: 2.8rem;
+            font-weight: bold;
+            animation: float 4s ease-in-out infinite, slideInLeft 0.8s ease-out;
+        }
+
+        .company-name {
+            font-size: 1.9rem;
+            color: white;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Menu de navigation */
+        nav {
+            background-color: rgba(30, 64, 175, 0.95);
+            padding: 1rem 2rem;
+            animation: fadeInDown 0.8s ease-out 0.2s both;
+            backdrop-filter: blur(5px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .nav-menu {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            list-style: none;
+        }
+        
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            padding: 0.5rem 1.2rem;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            background-color: rgba(255, 255, 255, 0.1);
+            animation: fadeInUp 0.6s ease-out;
+        }
+        
+        .nav-link:hover {
+            background-color: #ff6b6b;
+            color: white;
+            transform: translateY(-2px);
+            animation: glow 1.5s ease-in-out infinite;
+        }
+        
+        .nav-link.active {
+            background-color: #ff6b6b;
+            color: white;
+            box-shadow: 0 0 10px rgba(255, 107, 107, 0.5);
+        }
+        
+        /* Contenu principal */
+        main {
+            flex: 1;
+            padding: 3rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+        }
+        
+        .page-header {
+            text-align: center;
+            margin-bottom: 4rem;
+            padding-bottom: 2rem;
+            border-bottom: 2px solid #ff6b6b;
+        }
+        
+        .page-header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #ff6b6b;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8), 0 0 20px rgba(0, 0, 0, 0.6);
+            animation: fadeInDown 0.8s ease-out 0.3s both;
+        }
+        
+        .page-header p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto;
+            color: #ffffff;
+            text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.8);
+            animation: fadeInUp 0.8s ease-out 0.5s both;
+        }
+        
+        /* Recherche FAQ */
+        .search-container {
+            max-width: 600px;
+            margin: 0 auto 4rem;
+            animation: fadeInUp 0.8s ease-out;
+        }
+        
+        .search-box {
+            position: relative;
+        }
+        
+        .search-input {
+            width: 100%;
+            padding: 1.2rem 1.5rem 1.2rem 3.5rem;
+            font-size: 1.1rem;
+            background-color: rgba(30, 58, 138, 0.8);
+            border: 2px solid rgba(255, 107, 107, 0.3);
+            border-radius: 10px;
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .search-input:focus {
+            outline: none;
+            border-color: #ff6b6b;
+            box-shadow: 0 0 15px rgba(255, 107, 107, 0.4);
+        }
+
+        .search-input::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+        
+        .search-icon {
+            position: absolute;
+            left: 1.2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #ff6b6b;
+            font-size: 1.2rem;
+        }
+        
+        /* Catégories FAQ */
+        .categories-section {
+            margin-bottom: 4rem;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            color: #ff6b6b;
+            margin-bottom: 3rem;
+            text-align: center;
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8);
+            animation: fadeInDown 0.8s ease-out;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background-color: #ff6b6b;
+            border-radius: 2px;
+        }
+        
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .category-card {
+            background-color: rgba(30, 58, 138, 0.7);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(255, 107, 107, 0.2);
+            animation: fadeInUp 0.7s ease-out;
+            cursor: pointer;
+        }
+        
+        .category-card:hover {
+            transform: translateY(-5px);
+            border-color: #ff6b6b;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .category-card.active {
+            background-color: rgba(255, 107, 107, 0.2);
+            border-color: #ff6b6b;
+        }
+        
+        .category-icon {
+            font-size: 2.5rem;
+            color: #ff6b6b;
+            margin-bottom: 1rem;
+        }
+        
+        .category-card h3 {
+            font-size: 1.5rem;
+            color: #ff6b6b;
+            margin-bottom: 0.5rem;
+        }
+        
+        .category-card p {
+            color: #cbd5e1;
+            font-size: 0.9rem;
+        }
+        
+        /* FAQ Accordéon */
+        .faq-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            background-color: rgba(30, 58, 138, 0.8);
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(255, 107, 107, 0.2);
+            overflow: hidden;
+            animation: fadeInUp 0.7s ease-out;
+            transition: all 0.3s ease;
+        }
+        
+        .faq-item:hover {
+            border-color: #ff6b6b;
+        }
+        
+        .faq-question {
+            padding: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: rgba(30, 64, 175, 0.5);
+            transition: background-color 0.3s ease;
+        }
+        
+        .faq-question:hover {
+            background-color: rgba(255, 107, 107, 0.1);
+        }
+        
+        .faq-question h3 {
+            font-size: 1.3rem;
+            color: #ff6b6b;
+            margin-right: 1rem;
+            flex: 1;
+        }
+        
+        .faq-icon {
+            color: #ff6b6b;
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+        }
+        
+        .faq-answer {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.5s ease;
+        }
+        
+        .faq-item.active .faq-answer {
+            padding: 1.5rem;
+            max-height: 1000px;
+        }
+        
+        .faq-answer p {
+            color: #e2e8f0;
+            margin-bottom: 1rem;
+        }
+        
+        .faq-answer ul {
+            color: #cbd5e1;
+            padding-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .faq-answer li {
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Section contact FAQ */
+        .contact-faq {
+            background-color: rgba(30, 64, 175, 0.7);
+            border-radius: 15px;
+            padding: 3.5rem;
+            margin: 5rem 0;
+            border: 2px solid #ff6b6b;
+            text-align: center;
+            animation: fadeInUp 0.8s ease-out;
+        }
+        
+        .contact-faq h2 {
+            font-size: 2.2rem;
+            color: #ff6b6b;
+            margin-bottom: 1.5rem;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+        }
+        
+        .contact-faq p {
+            font-size: 1.2rem;
+            color: #e2e8f0;
+            margin-bottom: 2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* Section CTA */
+        .cta-section {
+            background-color: rgba(30, 64, 175, 0.8);
+            border-radius: 15px;
+            padding: 4rem;
+            text-align: center;
+            border: 2px solid #ff6b6b;
+            margin-top: 3rem;
+            animation: fadeInUp 0.8s ease-out;
+        }
+        
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: #ff6b6b;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+        }
+        
+        .cta-section p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2.5rem;
+            color: #e2e8f0;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+        }
+        
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .cta-button {
+            padding: 1rem 2.5rem;
+            font-size: 1.2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .primary-button {
+            background-color: #ff6b6b;
+            color: white;
+            border: 2px solid #ff6b6b;
+        }
+        
+        .primary-button:hover {
+            background-color: #ff5252;
+            border-color: #ff5252;
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(255, 107, 107, 0.4);
+        }
+        
+        .secondary-button {
+            background-color: transparent;
+            color: #ff6b6b;
+            border: 2px solid #ff6b6b;
+        }
+        
+        .secondary-button:hover {
+            background-color: #ff6b6b;
+            color: white;
+            transform: scale(1.05);
+        }
+        
+        /* Pied de page */
+        footer {
+            background-color: rgba(30, 58, 138, 0.95);
+            padding: 2rem;
+            text-align: center;
+            margin-top: auto;
+            backdrop-filter: blur(5px);
+        }
+        
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .footer-info {
+            margin-bottom: 1.5rem;
+            color: #cbd5e1;
+        }
+        
+        .footer-copyright {
+            color: #94a3b8;
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(255, 107, 107, 0.3);
+            padding-top: 1rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .categories-grid {
+                grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 2.2rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .nav-menu {
+                flex-direction: column;
+                align-items: center;
+                gap: 0.8rem;
+            }
+            
+            .faq-question h3 {
+                font-size: 1.1rem;
+            }
+            
+            .cta-section {
+                padding: 2.5rem 1.5rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .contact-faq {
+                padding: 2rem 1.5rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .page-header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .category-card {
+                padding: 1.5rem;
+            }
+            
+            .faq-question {
+                padding: 1.2rem;
+            }
+            
+            .faq-question h3 {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- En-tête avec logo -->
+    <header>
+        <div class="logo-container">
+            <div class="logo">🏢</div>
+            <div class="company-name">Groupe La Passerelle</div>
+        </div>
+    </header>
+    
+    <!-- Menu de navigation principal -->
+    <nav>
+        <ul class="nav-menu">
+           <li><a href="accueil.html" class="nav-link">Accueil</a></li>
+            <li><a href="presentation.html" class="nav-link">Présentation</a></li>
+            <li><a href="services.html" class="nav-link">Services</a></li>
+            <li><a href="equi.html" class="nav-link">notre equipe</a></li>
+            <li><a href="galerie.html" class="nav-link">galerie</a></li>
+            <li><a href="faq.html" class="nav-link active">FAQ</a></li>
+            <li><a href="formulaire.html" class="nav-link">inscription</a></li>
+            <li><a href="avantage.html" class="nav-link">avantages</a></li>
+            <li><a href="contact.html" class="nav-link">contact</a></li>
+            <li><a href="close.html" class="nav-link">close</a></li>
+        </ul>
+    </nav>
+    
+    <!-- Contenu principal -->
+    <main>
+        <section class="page-header">
+            <h1>Foire Aux Questions (FAQ)</h1>
+            <p>Retrouvez les réponses aux questions les plus fréquemment posées sur nos services immobiliers digitaux.</p>
+        </section>
+        
+        <!-- Recherche FAQ -->
+        <div class="search-container">
+            <div class="search-box">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" class="search-input" placeholder="Rechercher une question...">
+            </div>
+        </div>
+        
+        <!-- Catégories FAQ -->
+        <section class="categories-section">
+            <h2 class="section-title">Catégories de Questions</h2>
+            
+            <div class="categories-grid">
+                <div class="category-card active" data-category="general">
+                    <div class="category-icon">
+                        <i class="fas fa-info-circle"></i>
+                    </div>
+                    <h3>Général</h3>
+                    <p>Questions générales sur nos services</p>
+                </div>
+                
+                <div class="category-card" data-category="services">
+                    <div class="category-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3>Services</h3>
+                    <p>Détails sur nos offres immobilières</p>
+                </div>
+                
+                <div class="category-card" data-category="technique">
+                    <div class="category-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3>Technique</h3>
+                    <p>Aspects techniques de nos solutions</p>
+                </div>
+                
+                <div class="category-card" data-category="tarifs">
+                    <div class="category-icon">
+                        <i class="fas fa-euro-sign"></i>
+                    </div>
+                    <h3>Tarifs & Paiements</h3>
+                    <p>Informations sur nos tarifications</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- FAQ Accordéon -->
+        <section class="faq-section">
+            <h2 class="section-title">Questions Fréquentes</h2>
+            
+            <div class="faq-container">
+                <!-- FAQ Item 1 -->
+                <div class="faq-item active" data-category="general">
+                    <div class="faq-question">
+                        <h3>Qu'est-ce que Groupe La Passerelle ?</h3>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Groupe La Passerelle est une entreprise spécialisée dans les solutions immobilières digitales. Nous aidons les agences immobilières, promoteurs et propriétaires à valoriser leurs biens et développer leur présence en ligne grâce à des technologies innovantes.</p>
+                        <p>Fondée en 2015, notre équipe de 50+ experts combine expertise immobilière et compétences techniques pour offrir des services complets de valorisation digitale de propriétés.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 2 -->
+                <div class="faq-item" data-category="services">
+                    <div class="faq-question">
+                        <h3>Quels services immobiliers proposez-vous ?</h3>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Nous proposons une gamme complète de services immobiliers digitaux :</p>
+                        <ul>
+                            <li><strong>Création de sites web immobiliers</strong> : Sites vitrines et plateformes transactionnelles</li>
+                            <li><strong>Valorisation digitale de biens</strong> : Photos professionnelles, visites virtuelles 360°, vidéos de présentation</li>
+                            <li><strong>Solutions CRM immobilier</strong> : Gestion de portefeuille clients et suivi des transactions</li>
+                            <li><strong>Marketing digital immobilier</strong> : Référencement SEO, publicités ciblées, réseaux sociaux</li>
+                            <li><strong>Formation et accompagnement</strong> : Formation aux outils digitaux pour agents immobiliers</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 3 -->
+                <div class="faq-item" data-category="technique">
+                    <div class="faq-question">
+                        <h3>Quelles technologies utilisez-vous pour vos solutions ?</h3>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Nous utilisons les technologies les plus modernes et sécurisées :</p>
+                        <ul>
+                            <li><strong>Développement web</strong> : HTML5, CSS3, JavaScript, React, Vue.js</li>
+                            <li><strong>Bases de données</strong> : MySQL, PostgreSQL, MongoDB</li>
+                            <li><strong>Visites virtuelles</strong> : Technologies 3D et réalité virtuelle</li>
+                            <li><strong>Sécurité</strong> : SSL, cryptage des données, conformité RGPD</li>
+                            <li><strong>Hébergement</strong> : Serveurs cloud sécurisés avec sauvegarde automatique</li>
+                        </ul>
+                        <p>Toutes nos solutions sont responsives et s'adaptent parfaitement aux mobiles et tablettes.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 4 -->
+                <div class="faq-item" data-category="tarifs">
+                    <div class="faq-question">
+                        <h3>Comment sont fixés vos tarifs ?</h3>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Nos tarifs sont adaptés à chaque projet et client. Plusieurs facteurs sont pris en compte :</p>
+                        <ul>
+                            <li><strong>Type de service</strong> : Site vitrine, plateforme transactionnelle, CRM, etc.</li>
+                            <li><strong>Complexité du projet</strong> : Nombre de pages, fonctionnalités spécifiques, intégrations</li>
+                            <li><strong>Volume de biens</strong> : Nombre de propriétés à gérer</li>
+                            <li><strong>Durée d'engagement</strong> : Forfait mensuel, annuel ou projet ponctuel</li>
+                        </ul>
+                        <p>Nous proposons toujours un devis personnalisé après une analyse détaillée de vos besoins. Des forfaits de base sont également disponibles à partir de 99€/mois.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 5 -->
+                <div class="faq-item" data-category="services">
+                    <div class="faq-question">
+                        <h3>Combien de temps faut-il pour créer un site immobilier ?</h3>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Le délai de création dépend de la complexité du projet :</p>
+                        <ul>
+                            <li><strong>Site vitrine basique</strong> : 2 à 3 semaines</li>
+                            <li><strong>Plateforme complète avec CRM</strong> : 4 à 8 semaines</li>
+                            <li><strong>Solution sur mesure complexe</strong> : 2 à 3 mois</li>
+                        </ul>
+                        <p>Notre processus est transparent : nous établissons un calendrier précis dès le début du projet et vous tenons informé à chaque étape.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 6 -->
+                <div class="faq-item" data-category="technique">
+                    <div class="faq-question">
+                        <h3>Proposez-vous un support technique après la livraison ?</h3>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Oui, nous offrons différents niveaux de support :</p>
+                        <ul>
+                            <li><strong>Support de base</strong> : Assistance par email sous 24h (inclus dans tous nos forfaits)</li>
+                            <li><strong>Support prioritaire</strong> : Assistance téléphonique et chat en direct (forfait Premium)</li>
+                            <li><strong>Support 24/7</strong> : Assistance continue pour les solutions critiques (forfait Entreprise)</li>
+                        </ul>
+                        <p>Nous proposons également des formations à l'utilisation de nos outils et des mises à jour régulières pour garantir la sécurité et les performances de votre solution.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 7 -->
+                <div class="faq-item" data-category="general">
+                    <div class="faq-question">
+                        <h3>Dans quels pays intervenez-vous ?</h3>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Nous intervenons principalement en France, en Belgique, en Suisse et dans plusieurs pays d'Afrique francophone (Congo, Côte d'Ivoire, Sénégal, Cameroun).</p>
+                        <p>Nos solutions sont disponibles en français et peuvent être adaptées à d'autres langues sur demande. Nous avons développé une expertise spécifique pour chaque marché immobilier local.</p>
+                        <p>Pour les projets internationaux, nous travaillons avec des partenaires locaux pour garantir la conformité réglementaire et culturelle.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 8 -->
+                <div class="faq-item" data-category="tarifs">
+                    <div class="faq-question">
+                        <h3>Proposez-vous des essais gratuits ?</h3>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Oui, nous proposons plusieurs options pour découvrir nos services :</p>
+                        <ul>
+                            <li><strong>Démonstration en ligne</strong> : Visite guidée de nos solutions avec un conseiller</li>
+                            <li><strong>Version d'essai</strong> : Accès limité à nos outils pendant 14 jours</li>
+                            <li><strong>Proof of Concept</strong> : Pour les grands projets, création d'un mini-projet pilote</li>
+                        </ul>
+                        <p>Contactez-nous pour programmer une démonstration personnalisée selon vos besoins spécifiques.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Section contact FAQ -->
+        <section class="contact-faq">
+            <h2>Vous ne trouvez pas la réponse à votre question ?</h2>
+            <p>Notre équipe est à votre disposition pour répondre à toutes vos interrogations concernant nos services immobiliers digitaux.</p>
+            <a href="contact.html" class="cta-button primary-button" style="display: inline-block; margin-top: 1rem;">
+                <i class="fas fa-envelope"></i> Nous Contacter
+            </a>
+        </section>
+        
+        <!-- Section CTA -->
+        <section class="cta-section">
+            <h2>Prêt à Digitaliser Votre Activité Immobilière ?</h2>
+            <p>Découvrez comment nos solutions peuvent transformer votre présence en ligne et augmenter vos ventes et locations.</p>
+         
+        </section>
+    </main>
+    
+    <!-- Pied de page -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-info">
+                <p><strong>Groupe La Passerelle</strong> - Experts en Solutions Immobilières Digitales</p>
+                <p>Valorisation immobilière et création de sites d'agences innovants</p>
+            </div>
+            
+            <div class="footer-copyright">
+                <p>© 2026 Groupe La Passerelle. Tous droits réservés.</p>
+                <p>Site développé avec HTML5, CSS3 et JavaScript</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript pour l'accordéon FAQ
+        document.addEventListener('DOMContentLoaded', function() {
+            // Gestion des questions FAQ
+            const faqQuestions = document.querySelectorAll('.faq-question');
+            
+            faqQuestions.forEach(question => {
+                question.addEventListener('click', function() {
+                    const faqItem = this.parentElement;
+                    faqItem.classList.toggle('active');
+                });
+            });
+            
+            // Gestion des catégories
+            const categoryCards = document.querySelectorAll('.category-card');
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            categoryCards.forEach(card => {
+                card.addEventListener('click', function() {
+                    // Retirer la classe active de toutes les cartes
+                    categoryCards.forEach(c => c.classList.remove('active'));
+                    
+                    // Ajouter la classe active à la carte cliquée
+                    this.classList.add('active');
+                    
+                    // Récupérer la catégorie sélectionnée
+                    const selectedCategory = this.getAttribute('data-category');
+                    
+                    // Afficher/masquer les questions en fonction de la catégorie
+                    faqItems.forEach(item => {
+                        if (selectedCategory === 'all' || item.getAttribute('data-category') === selectedCategory) {
+                            item.style.display = 'block';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                });
+            });
+            
+            // Fonction de recherche
+            const searchInput = document.querySelector('.search-input');
+            
+            searchInput.addEventListener('input', function() {
+                const searchTerm = this.value.toLowerCase();
+                
+                faqItems.forEach(item => {
+                    const question = item.querySelector('.faq-question h3').textContent.toLowerCase();
+                    const answer = item.querySelector('.faq-answer').textContent.toLowerCase();
+                    
+                    if (question.includes(searchTerm) || answer.includes(searchTerm)) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+            
+            // Ouvrir la première question par défaut
+            if (faqQuestions.length > 0) {
+                faqQuestions[0].parentElement.classList.add('active');
+            }
+        });
+    </script>
+</body>
+</html>
